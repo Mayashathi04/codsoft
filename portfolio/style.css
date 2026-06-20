@@ -1,0 +1,311 @@
+/* ==========================================================================
+   1. Reset & Global Layout Styles
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #ffffff;
+    /* Aesthetic Aurora - Indigo/Cyan Dark Premium Blend */
+    background: linear-gradient(145deg, #0b0f19, #111827, #06283d);
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.section {
+    padding: 60px 0;
+}
+
+.text-center {
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.3rem;
+    margin-bottom: 20px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================================================
+   2. High-Contrast Glassmorphic Card Engine
+   ========================================================================== */
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(16px) saturate(120%);
+    -webkit-backdrop-filter: blur(16px) saturate(120%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35);
+    margin-bottom: 40px;
+    padding: 40px;
+}
+
+/* ==========================================================================
+   3. Header & Fluid Navigation Layout (Fixes Cut-off/Hidden Content)
+   ========================================================================== */
+header {
+    background: rgba(11, 15, 25, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 5%; /* Fluid spacing wrapper */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.brand {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff; /* Sharp white visibility */
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+}
+
+.tagline {
+    font-style: italic;
+    color: #94a3b8; /* Muted slate profile descriptor */
+    font-size: 0.9rem;
+    margin-top: 4px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px; /* Generous element spacing */
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    padding: 5px 0;
+}
+
+nav a:hover {
+    color: #38bdf8; /* Aurora Sky Blue link focus */
+}
+
+/* ==========================================================================
+   4. About Section (Enlarged Picture Framing)
+   ========================================================================== */
+.about-container {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.profile-img {
+    width: 240px; /* Upgraded size frame */
+    height: 240px; /* Upgraded size frame */
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+    flex-shrink: 0;
+}
+
+.about-text p {
+    font-size: 1.1rem;
+    color: #e2e8f0;
+}
+
+/* ==========================================================================
+   5. Interactive Technical Skills Badges
+   ========================================================================== */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.skill-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   6. Projects Display Grid & GitHub Modules
+   ========================================================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 20px;
+}
+
+.project-card {
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    overflow: hidden;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.07);
+}
+
+.project-info {
+    padding: 25px;
+}
+
+.project-info h3 {
+    margin-bottom: 12px;
+    font-size: 1.3rem;
+}
+
+.project-info p {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    margin-bottom: 20px;
+}
+
+.github-btn {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    padding: 8px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: all 0.3s ease;
+}
+
+.github-btn:hover {
+    background: #ffffff;
+    color: #111827;
+}
+
+/* ==========================================================================
+   7. Resume Split Action Architecture (Pristine White Buttons)
+   ========================================================================== */
+.resume-text {
+    color: #cbd5e1;
+    margin-bottom: 25px;
+}
+
+.resume-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.btn-resume {
+    display: inline-block;
+    background-color: #ffffff;
+    color: #111827; /* High contrast dark text layout mapping */
+    padding: 12px 28px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 30px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+.btn-resume:hover {
+    background-color: transparent;
+    color: #ffffff; /* Smooth color inversion on hover */
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   8. Contact Details & Footer Elements
+   ========================================================================== */
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-info p {
+    font-size: 1.1rem;
+    margin: 8px 0;
+    color: #e2e8f0;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    color: #6b7280;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   9. Media Query Engine (Adaptive Scaling for Mobile & Tablets)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    nav ul {
+        gap: 15px;
+    }
+    
+    .glass-card {
+        padding: 30px 20px;
+    }
+}

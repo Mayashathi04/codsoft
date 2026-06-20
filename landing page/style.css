@@ -1,0 +1,364 @@
+/* --- RESET & VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+:root {
+    --brand-color: #0284c7;
+    --brand-dark: #0369a1;
+    --accent-bg: #f0f9ff;
+    --text-main: #334155;
+    --text-heading: #0f172a;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    color: var(--text-main);
+    background-color: var(--surface);
+    line-height: 1.7;
+}
+
+/* --- MAIN REUSABLE CONTAINERS --- */
+.section-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 5rem 2rem;
+}
+
+h2 {
+    font-size: 2.25rem;
+    color: var(--text-heading);
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--brand-color);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.875rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 3rem;
+}
+
+/* --- NAVIGATION --- */
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    box-shadow: 0 1px 3px var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.25rem 2rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-heading);
+}
+
+.logo span {
+    color: var(--brand-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+    color: var(--brand-color);
+}
+
+/* --- HERO SECTION --- */
+.hero-section {
+    background-color: var(--accent-bg);
+    padding: 6rem 2rem;
+}
+
+.hero-container {
+    max-width: 1140px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h1 {
+    font-size: 3.5rem;
+    color: var(--text-heading);
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+    display: inline-block;
+    background-color: var(--brand-color);
+    color: white;
+    padding: 0.875rem 2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--brand-dark);
+}
+
+/* --- ABOUT SECTION --- */
+.about-section {
+    background-color: var(--surface);
+    text-align: center;
+}
+
+.about-content {
+    max-width: 750px;
+    margin: 0 auto;
+    font-size: 1.2rem;
+}
+
+/* --- ALTERNATING SHOWCASE SYSTEM --- */
+.showcase-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5rem;
+    margin-top: 2rem;
+}
+
+.showcase-row {
+    display: flex;
+    align-items: center;
+    gap: 4rem;
+    padding: 1.5rem;
+    border-radius: 16px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Ultra smooth transition logic */
+}
+
+.showcase-row.reverse {
+    flex-direction: row-reverse;
+}
+
+/* WHOLE ROW POPS UP WHEN HOVERED */
+.showcase-row:hover {
+    transform: translateY(-8px) scale(1.015); /* Lifts up and scales slightly */
+    background-color: #ffffff;
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.06); /* Adds soft depth shadow */
+}
+
+.showcase-image {
+    flex: 1;
+}
+
+.showcase-image img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.4s ease;
+}
+
+/* Inside images adjust perspective slightly during row hover */
+.showcase-row:hover .showcase-image img {
+    transform: scale(1.02);
+}
+
+.showcase-text {
+    flex: 1;
+    text-align: left;
+}
+
+/* Badge Base Style */
+.badge {
+    display: inline-block;
+    background-color: var(--accent-bg);
+    color: var(--brand-color);
+    padding: 0.35rem 1rem;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Badge highlight links to the whole row hover status */
+.showcase-row:hover .badge {
+    background-color: var(--brand-color);
+    color: var(--surface);
+}
+
+.showcase-text h3 {
+    font-size: 1.75rem;
+    color: var(--text-heading);
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+.showcase-text p {
+    color: var(--text-main);
+    font-size: 1.05rem;
+}
+
+/* --- TESTIMONIALS SECTION --- */
+.testimonials-section {
+    background-color: var(--accent-bg);
+}
+
+.grid-2-columns {
+    display: flex;
+    gap: 2rem;
+}
+
+.review-card {
+    flex: 1;
+    background-color: var(--surface);
+    padding: 2.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+}
+
+.review-card p {
+    font-style: italic;
+    margin-bottom: 1.5rem;
+}
+
+.user-info strong {
+    display: block;
+    color: var(--text-heading);
+}
+
+.user-info span {
+    font-size: 0.875rem;
+    color: var(--brand-color);
+}
+
+/* --- CONTACT FORM --- */
+.contact-wrapper {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--text-heading);
+}
+
+.form-group input, 
+.form-group textarea {
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+}
+
+.form-group input:focus, 
+.form-group textarea:focus {
+    border-color: var(--brand-color);
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--text-heading);
+    color: #94a3b8;
+    text-align: center;
+    padding: 2.5rem 2rem;
+    font-size: 0.95rem;
+}
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+@media (max-width: 968px) {
+    .hero-container,
+    .grid-2-columns {
+        flex-direction: column;
+    }
+
+    .showcase-row,
+    .showcase-row.reverse {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .showcase-text {
+        text-align: center;
+    }
+}
+
+@media (max-width: 648px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+    .nav-links {
+        gap: 1.25rem;
+    }
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+}
